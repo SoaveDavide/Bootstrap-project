@@ -1,21 +1,200 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <title>SOCKET</title>
-  </head>
-  <body>
-    <h1>SOCKET</h1>
+    <link href="/style.css" rel = "stylesheet">
+</head>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+<body>
+    <h1 class="text-center">SOCKET</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          INDICE
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="/informatica.html">INFORMATICA</a></li>
+                          <li><a class="dropdown-item" href="/sistemi.html">SISTEMI</a></li>
+                          <li><a class="dropdown-item" href="/socket.html">SOCKET</a></li>
+                          <li><a class="dropdown-item" href="/glossario.html">GLOSSARIO</a></li>
+                      </ul>
+                  </li>
+              </ul>
+              <form class="d-flex">
+                  <input class="form-control me-2 bg-dark text-light" type="search" placeholder="Search"
+                      aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+          </div>
+      </div>
+  </nav>
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-4">
+                <div id="list-example" class="list-group">
+                    <a class="list-group-item list-group-item-action" href="#list-item-1">Che cosa sono?</a>
+                    <a class="list-group-item list-group-item-action" href="#list-item-2">A che cosa servono?</a>
+                    <a class="list-group-item list-group-item-action" href="#list-item-3">Come funzionano?</a>
+                    <a class="list-group-item list-group-item-action" href="#list-item-4">Esempio di utilizzo</a>
+                </div>
+            </div>
+            <div class="col-8">
+                <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true"
+                    class="scrollspy-example" tabindex="0">
+                    <h4 id="list-item-1">Che cosa sono?</h4>
+                    <p class="border-bottom border-5 border-primary">Una socket è un endpoint di comunicazione utilizzato
+                        per inviare e ricevere dati attraverso una rete. Fornisce un'interfaccia standard per comunicare
+                        tra dispositivi remoti.</p>
+                    <h4 id="list-item-2">A che cosa servono?</h4>
+                    <p class="border-bottom border-5 border-primary">Le **socket** servono a consentire la comunicazione
+                        tra dispositivi o processi attraverso una rete, permettendo lo scambio di dati in modo strutturato
+                        e standardizzato. Sono essenziali per implementare applicazioni di rete come browser web, client e
+                        server di posta elettronica, servizi di streaming, applicazioni di messaggistica e giochi online.
+                        In particolare, le socket offrono un punto di accesso per inviare e ricevere dati, astraggono la
+                        complessità dei protocolli di comunicazione come TCP e UDP, e permettono agli sviluppatori di
+                        costruire applicazioni scalabili e affidabili, semplificando la gestione della rete sottostante. In
+                        breve, sono uno strumento indispensabile per abilitare la comunicazione client-server e molteplici
+                        altre forme di interconnessione su reti locali o globali come Internet.</p>
+                    <h4 id="list-item-3">Come funzionano?</h4>
+                    <p class="border-bottom border-5 border-primary">Una socket è un'interfaccia software che consente la
+                        comunicazione tra due processi, sia sullo stesso dispositivo che su dispositivi diversi connessi in
+                        rete. Nel linguaggio C, il server crea una socket con `socket()`, la associa a un indirizzo IP e una
+                        porta tramite `bind()`, e si mette in ascolto con `listen()`. Quando un client si connette
+                        utilizzando `connect()`, il server accetta la connessione con `accept()`, creando una nuova socket
+                        dedicata alla comunicazione. Entrambi i lati della connessione possono quindi scambiare dati tramite
+                        `send()` e `recv()`, fino a chiudere la comunicazione con `close()`. Le socket possono operare con
+                        il protocollo TCP, garantendo connessioni affidabili e ordinamento dei dati, o con UDP, che offre
+                        comunicazioni rapide ma non garantite. Questo sistema è alla base di molte applicazioni di rete come
+                        server web, email e streaming.</p>
+                    <h4 id="list-item-4">Esempio di utilizzo:</h4>
+                    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;arpa/inet.h&gt;
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+#define PORT 8080
 
-  </body>
+int main() {
+    int server_fd, new_socket;
+    struct sockaddr_in address;
+    int opt = 1;
+    int addrlen = sizeof(address);
+    char buffer[1024] = {0};
+    char *hello = "Benvenuto dal server!";
+
+    // Creazione del file descriptor della socket
+    if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
+        perror("Errore nella creazione della socket");
+        exit(EXIT_FAILURE);
+    }
+
+    // Configurazione delle opzioni della socket
+    if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt))) {
+        perror("Errore setsockopt");
+        exit(EXIT_FAILURE);
+    }
+
+    address.sin_family = AF_INET;
+    address.sin_addr.s_addr = INADDR_ANY;
+    address.sin_port = htons(PORT);
+
+    // Associazione della socket alla porta
+    if (bind(server_fd, (struct sockaddr *)&address, sizeof(address)) < 0) {
+        perror("Errore bind");
+        exit(EXIT_FAILURE);
+    }
+
+    // Ascolto delle connessioni in ingresso
+    if (listen(server_fd, 3) < 0) {
+        perror("Errore listen");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Server in ascolto sulla porta %d...\n", PORT);
+
+    // Accettazione delle connessioni
+    if ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen)) < 0) {
+        perror("Errore accept");
+        exit(EXIT_FAILURE);
+    }
+
+    read(new_socket, buffer, 1024);
+    printf("Messaggio ricevuto: %s\n", buffer);
+    send(new_socket, hello, strlen(hello), 0);
+    printf("Messaggio inviato\n");
+
+    close(new_socket);
+    close(server_fd);
+
+    return 0;
+}
+</code></pre>
+                    <p>Questo codice crea un server TCP che accetta connessioni e invia un messaggio di benvenuto ai client.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-dark text-light">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <div class="me-5 d-none d-lg-block">
+            <span style="color: #007bff;">Informazioni personali e dell'azienda:</span>
+        </div>
+        <div>
+            <a href="" class="me-4 text-reset"><i class="fab fa-facebook-f"></i></a>
+            <a href="" class="me-4 text-reset"><i class="fab fa-twitter"></i></a>
+            <a href="" class="me-4 text-reset"><i class="fab fa-google"></i></a>
+            <a href="" class="me-4 text-reset"><i class="fab fa-instagram"></i></a>
+            <a href="" class="me-4 text-reset"><i class="fab fa-linkedin"></i></a>
+            <a href="" class="me-4 text-reset"><i class="fab fa-github"></i></a>
+        </div>
+    </section>
+
+    <section class="container text-center text-md-start mt-5">
+        <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-gem me-3" style="color: #007bff;"></i>IIS VIOLA MARCHESINI</h6>
+                <p>Davide Soave, 5E</p>
+            </div>
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4" style="color: #007bff;">Useful links</h6>
+                <p><a href="#!" class="text-reset">Settings</a></p>
+                <p><a href="#!" class="text-reset">Help</a></p>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <h6 class="text-uppercase fw-bold mb-4" style="color: #007bff;">Contact</h6>
+                <p><i class="fas fa-home me-3"></i> Rovigo, RO 45100, IT</p>
+                <p><i class="fas fa-envelope me-3"></i> davide.soave@iisviolamarchesini.edu.it</p>
+                <p><i class="fas fa-phone me-3"></i> +39 334 360 4202</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2024 Copyright:
+        <a class="text-reset fw-bold" href="https://iisviolamarchesini.edu.it/" style="color: #007bff;">iisviolamarchesini.it</a>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
