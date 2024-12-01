@@ -9,9 +9,17 @@
     <title>INFORMATICA</title>
   </head>
   <body>
-    <h1>INFORMATICA</h1>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <h1 class="text-center my-5 pt-3">
+        DATABASE
+    </h1>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
+            <a class="navbar-brand" href="/">LOGO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -31,13 +39,89 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2 bg-dark text-light" type="search" placeholder="Search"
+                    <input class="form-control me-2 bg-dark text-light" type="search" placeholder="Search" 
                         aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
     </nav>
+    
+    <br>
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-4">
+                <div id="list-example" class="list-group sticky-top">
+                    <a class="list-group-item list-group-item-action" href="#list-item-1">Che cos'è un database?</a>
+                    <a class="list-group-item list-group-item-action" href="#list-item-2">A che cosa serve?</a>
+                    <a class="list-group-item list-group-item-action" href="#list-item-3">Che cos'è un DBMS?</a>
+                    <a class="list-group-item list-group-item-action" href="#list-item-4">Approccio DBMS</a>
+                </div>
+            </div>
+            <div class="col-8">
+                <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true"
+                    class="scrollspy-example" tabindex="0">
+                    <h4 id="list-item-1">Che cosa è?</h4>
+                    <p class="border-bottom border-5 border-primary">Un database è un sistema organizzato per raccogliere, gestire e archiviare dati in modo strutturato. 
+                        Permette di accedere, aggiornare e interrogare informazioni in modo efficiente, spesso utilizzando un linguaggio specifico come SQL. 
+                        I database possono essere relazionali (strutturati in tabelle) o non relazionali (basati su documenti, grafi, ecc.). 
+                        Vengono usati in molti ambiti, come siti web, app e analisi di dati.</p>
+                    <h4 id="list-item-2">A che cosa serve?</h4>
+                    <p class="border-bottom border-5 border-primary">Un database serve per organizzare, memorizzare e gestire grandi quantità di dati in modo efficiente e sicuro. 
+                        Consente di accedere rapidamente alle informazioni, modificarle o analizzarle secondo necessità. 
+                        Viene utilizzato in diversi contesti: per gestire utenti e contenuti in siti web, monitorare inventari aziendali, elaborare transazioni finanziarie o analizzare dati complessi per supportare decisioni. 
+                        Grazie ai database, è possibile centralizzare le informazioni, garantire consistenza e facilitarne la condivisione tra diversi sistemi o utenti.</p>
+                    <h4 id="list-item-3">Che cos'è un DBMS</h4>
+                    <p class="border-bottom border-5 border-primary">Un DBMS (Database Management System) è un software che consente di creare, gestire e interagire con un database. 
+                        Fornisce strumenti per organizzare i dati, eseguire operazioni come l'inserimento, l'aggiornamento, l'eliminazione e la ricerca, e garantisce sicurezza, consistenza e accesso controllato alle informazioni.
+                        Esempi comuni di DBMS includono MySQL, PostgreSQL, Oracle Database e MongoDB.</p>
+                    <h4 id="list-item-4">Approccio DBMS vs File System</h4>
+                    <table>
+                        <thead>
+                          <tr>
+                            <th>Caratteristica</th>
+                            <th>Approccio DBMS</th>
+                            <th>Approccio File System</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Scalabilità</td>
+                            <td>Altamente scalabile per grandi volumi di dati</td>
+                            <td>Scalabilità limitata</td>
+                          </tr>
+                          <tr>
+                            <td>Backup e ripristino</td>
+                            <td>Include strumenti integrati per backup e ripristino</td>
+                            <td>Deve essere implementato manualmente o tramite software aggiuntivi</td>
+                          </tr>
+                          <tr>
+                            <td>Integrità dei dati</td>
+                            <td>Supportata tramite vincoli di integrità e regole aziendali</td>
+                            <td>Deve essere gestita manualmente</td>
+                          </tr>
+                          <tr>
+                            <td>Accesso ai dati</td>
+                            <td>Accesso tramite query con meccaniscmi avanzati di ricerca</td>
+                            <td>L'accesso avviene attraverso il programma che gestisce i file</td>
+                          </tr>
+                          <tr>
+                            <td>Sicurezza</td>
+                            <td>Alto livello di sicurezza con controlli granulari di accesso ai dati</td>
+                            <td>Limitata, basata sul livello del sistema operativo</td>
+                          </tr>
+                          <tr>
+                            <td>Concorrente utilizzo</td>
+                            <td>Supporta accesso concorrente tramite meccaniscmi come il locking</td>
+                            <td>Difficile sincronizzare l'accesso simultaneo ai file</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Footer -->
 <footer class="text-center text-lg-start bg-dark text-light">
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
