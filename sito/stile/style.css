@@ -95,3 +95,36 @@ table {
   tbody tr:hover {
     background-color: #333; /* Sfondo più chiaro al passaggio del mouse */
   }
+  .accordion-button {
+    background-color: #1e1e1e; /* Sfondo scuro */
+    color: #f8f9fa; /* Testo chiaro */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border: none; /* Rimuove i bordi */
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #007bff; /* Sfondo blu per lo stato attivo */
+    color: #fff; /* Testo bianco */
+}
+
+.accordion-button:hover {
+    background-color: #333; /* Sfondo più chiaro al passaggio del mouse */
+    color: #f8f9fa;
+}
+
+.accordion-item {
+    background-color: #121212; /* Sfondo scuro per ogni sezione */
+    border: 1px solid #343a40; /* Bordo scuro */
+}
+
+.accordion-body {
+    background-color: #1c1c1c; /* Sfondo per il corpo */
+    color: #f8f9fa; /* Testo chiaro */
+    padding: 15px;
+    border-top: 1px solid #343a40; /* Bordo superiore */
+}
+
+.accordion-button:focus {
+    box-shadow: none; /* Rimuove ombre */
+}
