@@ -128,3 +128,14 @@ table {
 .accordion-button:focus {
     box-shadow: none; /* Rimuove ombre */
 }
+.navbar .navbar-brand {
+    color: #f8f9fa; /* Text color for navbar links */
+    font-size: 1.25rem; /* Adjust size to match the "HOME" button */
+    padding: 10px 15px; /* Ensure consistent padding for all buttons */
+    text-transform: uppercase; /* Uppercase letters for uniform style */
+}
+
+.navbar .navbar-brand:hover {
+    color: #007bff; /* Hover effect for navbar links */
+    background-color: #333; /* Slight background change on hover */
+}
