@@ -10,6 +10,7 @@
 
     <title>SOCKET</title>
     <link href="/sito/stile/style.css" rel = "stylesheet">
+    <link rel="icon" type="image/x-icon" href="../favicon/pc.png">
 </head>
 
 <body>
@@ -33,7 +34,7 @@
             <div class="col-4">
                 <div id="list-example" class="list-group sticky-top">
                     <a class="list-group-item list-group-item-action" href="#list-item-1">Che cosa sono?</a>
-                    <a class="list-group-item list-group-item-action" href="#list-item-2">A che cosa servono?</a>
+                    <a class="list-group-item list-group-item-action" href="#list-item-2">Tipologie di socket?</a>
                     <a class="list-group-item list-group-item-action" href="#list-item-3">Come funzionano?</a>
                     <a class="list-group-item list-group-item-action" href="#list-item-4">Esempio di utilizzo</a>
                 </div>
@@ -45,16 +46,52 @@
                     <p class="border-bottom border-5 border-primary">Una socket è un endpoint di comunicazione utilizzato
                         per inviare e ricevere dati attraverso una rete. Fornisce un'interfaccia standard per comunicare
                         tra dispositivi remoti.</p>
-                    <h4 id="list-item-2">A che cosa servono?</h4>
-                    <p class="border-bottom border-5 border-primary">Le **socket** servono a consentire la comunicazione
-                        tra dispositivi o processi attraverso una rete, permettendo lo scambio di dati in modo strutturato
-                        e standardizzato. Sono essenziali per implementare applicazioni di rete come browser web, client e
-                        server di posta elettronica, servizi di streaming, applicazioni di messaggistica e giochi online.
-                        In particolare, le socket offrono un punto di accesso per inviare e ricevere dati, astraggono la
-                        complessità dei protocolli di comunicazione come TCP e UDP, e permettono agli sviluppatori di
-                        costruire applicazioni scalabili e affidabili, semplificando la gestione della rete sottostante. In
-                        breve, sono uno strumento indispensabile per abilitare la comunicazione client-server e molteplici
-                        altre forme di interconnessione su reti locali o globali come Internet.</p>
+                    <h4 id="list-item-2">Tipologie di socket?</h4>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                Stream (SOCK_STREAM)
+                            </button>
+                          </h2>
+                          <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Utilizzato per la comunicazione orientata alla connessione, come TCP. Garantisce affidabilità e ordinamento dei dati.</div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                Datagram (SOCK_DGRAM)
+                            </button>
+                          </h2>
+                          <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Utilizzato per la comunicazione senza connessione, come UDP. Non garantisce affidabilità o ordine, ma offre velocità.</div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                Raw (SOCK_RAW): 
+                            </button>
+                          </h2>
+                          <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Permette l'accesso diretto ai pacchetti di rete, utile per applicazioni di basso livello come strumenti di diagnostica.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                Sequenced Packet (SOCK_SEQPACKET):
+                              </button>
+                            </h2>
+                            <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                              <div class="accordion-body">Combina le caratteristiche di stream e datagram, garantendo sequenza e integrità dei pacchetti, ma senza la connessione TCP.
+                            </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div></p>
                     <h4 id="list-item-3">Come funzionano?</h4>
                     <p class="border-bottom border-5 border-primary">Una socket è un'interfaccia software che consente la
                         comunicazione tra due processi, sia sullo stesso dispositivo che su dispositivi diversi connessi in
@@ -67,69 +104,106 @@
                         comunicazioni rapide ma non garantite. Questo sistema è alla base di molte applicazioni di rete come
                         server web, email e streaming.</p>
                     <h4 id="list-item-4">Esempio di utilizzo:</h4>
-                    <pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;string.h&gt;
-#include &lt;unistd.h&gt;
-#include &lt;arpa/inet.h&gt;
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                Codice client
+                            </button>
+                          </h2>
+                          <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body"><pre><code>//CLIENT
+#include <stdio.h>       //std in-out
+#include <stdlib.h>      //per utilizzo di certe funzioni:htonl,rand,....
+#include <sys/socket.h>  //funz. accept+bind+listen
+#include <sys/types.h>   //funz. accept
+#include <netinet/in.h>  //definiscono la struttura degli indirizzi 
+#include <string.h>      //funz. stringhe
+#include <errno.h>       //gestioni errori connessione
+#include <ctype.h>       //bind
+#include <unistd.h>     // file header che consente l'accesso alle API dello standard POSIX
 
-#define PORT 8080
-
-int main() {
-    int server_fd, new_socket;
-    struct sockaddr_in address;
-    int opt = 1;
-    int addrlen = sizeof(address);
-    char buffer[1024] = {0};
-    char *hello = "Benvenuto dal server!";
-
-    // Creazione del file descriptor della socket
-    if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
-        perror("Errore nella creazione della socket");
-        exit(EXIT_FAILURE);
-    }
-
-    // Configurazione delle opzioni della socket
-    if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt))) {
-        perror("Errore setsockopt");
-        exit(EXIT_FAILURE);
-    }
-
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons(PORT);
-
-    // Associazione della socket alla porta
-    if (bind(server_fd, (struct sockaddr *)&address, sizeof(address)) < 0) {
-        perror("Errore bind");
-        exit(EXIT_FAILURE);
-    }
-
-    // Ascolto delle connessioni in ingresso
-    if (listen(server_fd, 3) < 0) {
-        perror("Errore listen");
-        exit(EXIT_FAILURE);
-    }
-
-    printf("Server in ascolto sulla porta %d...\n", PORT);
-
-    // Accettazione delle connessioni
-    if ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen)) < 0) {
-        perror("Errore accept");
-        exit(EXIT_FAILURE);
-    }
-
-    read(new_socket, buffer, 1024);
-    printf("Messaggio ricevuto: %s\n", buffer);
-    send(new_socket, hello, strlen(hello), 0);
-    printf("Messaggio inviato\n");
-
-    close(new_socket);
-    close(server_fd);
-
-    return 0;
+#define DIM 50
+#define SERVERPORT 1313
+                                
+int main(int argc,char** argv)
+//creazione di un elemento di tipo sockaddr vedi pagina 162
+struct sockaddr_in servizio;
+//inizializzazione dell'elemento di tipo sockaddr
+ servizio.sin_family=AF_INET;
+ servizio.sin_addr.s_addr=htonl(INADDR_ANY); //  La funzione htonl accetta un numero a 32 bit in ordine di byte host e restituisce un numero a 32 bit nell'ordine dei byte di rete usato nelle reti TCP/IP (la famiglia di indirizzi AF_INET o AF_INET6).
+ servizio.sin_port=htons(SERVERPORT);       //La funzione htons accetta un numero a 16 bit nell'ordine dei byte host e restituisce un numero a 16 bit nell'ordine dei byte di rete usato nelle reti TCP/IP (la famiglia di indirizzi AF_INET o AF_INET6).
+ char str1[DIM];     //Stringa da inviare
+ int socketfd;// identificatore della socket
+//creazione e definizione del Socket di tipo stream tcp pg 163
+ socketfd=socket(AF_INET,SOCK_STREAM,0);
+ //connessione al server pag.173
+ connect(socketfd,(struct sockaddr*)&servizio,sizeof(servizio));    
+ printf("Inserisci la stringa\n");
+ scanf("%s",str1);
+write(socketfd,str1,sizeof(str1));
+ lose(socketfd);
+ return 0;
 }
-</code></pre>
+</code></pre></div>
+                    </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                Codice Server
+                            </button>
+                          </h2>
+                          <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body"><pre><code>//SERVER
+#include <stdio.h>       //std in-out
+#include <stdlib.h>      //per utilizzo di certe funzioni:htonl,rand,....
+#include <sys/socket.h>  //funz. accept+bind+listen
+#include <sys/types.h>   //funz. accept
+#include <netinet/in.h>  //definiscono la struttura degli indirizzi 
+#include <string.h>      //funz. stringhe
+#include <errno.h>       //gestioni errori connessione
+#include <ctype.h>       //bind
+#include <unistd.h>     // file header che consente l'accesso alle API dello standard POSIX
+ 
+ #define DIM 50
+#define SERVERPORT 1313
+
+int main()
+{
+    struct sockaddr_in servizio, addr_remoto;// record con i dati del server e del client
+    // definizione dei dati del socket p.161
+    servizio.sin_family=AF_INET;
+servizio.sin_addr.s_addr=htonl(INADDR_ANY);
+servizio.sin_port=htons(SERVERPORT);
+int socketfd, soa, fromlen=sizeof(servizio);
+char str[DIM];
+// impostazione del transport endpoint del server p.163-164
+socketfd=socket(AF_INET,SOCK_STREAM,0);
+// leghiamo l'indirizzo al transport endpoint p. 164
+bind(socketfd,(struct sockaddr*)&servizio,sizeof(servizio));
+// poniamo il server in ascolto delle richieste dei client 
+listen(socketfd,10);// può attendere fino a 10 client
+/ ciclo infinito
+for (; ;)
+    {
+printf("\n\nServer in ascolto...");
+fflush(stdout);
+//il server accetta la connessione pag. 165
+soa=accept(socketfd,(struct sockaddr*)&addr_remoto,&fromlen);
+//legge dal client
+read(soa,str,sizeof(str));
+printf("Stringa ricevuta: %s\n",str);
+close(soa);
+}
+return 0;   
+}
+</code></pre></div>
+                     </div>
+                          </div>
+                      </div></p>
+                    
+                    
                     <p>Questo codice crea un server TCP che accetta connessioni e invia un messaggio di benvenuto ai client.
                     </p>
                 </div>
